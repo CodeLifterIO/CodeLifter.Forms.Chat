@@ -2,16 +2,16 @@
 using System.Threading.Tasks;
 using AVFoundation;
 using Foundation;
-using Pazz.Mobile.iOS;
-using Pazz.Mobile.iOS.Multiplatform;
-using Pazz.Mobile.iOS.Views;
-using Pazz.Mobile.Views;
+using Demo.iOS;
+using Demo.iOS.Multiplatform;
+using Demo.iOS.Views;
+using Demo.Views;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
 [assembly: ExportRenderer(typeof(CameraPreview), typeof(CameraPreviewRenderer))]
-namespace Pazz.Mobile.iOS
+namespace Demo.iOS
 {
     public class CameraPreviewRenderer : ViewRenderer<CameraPreview, UICameraPreview>
     {

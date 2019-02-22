@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Pazz.Mobile.Services
+namespace Demo.Services
 {
     public interface IDialogFlowService
     {

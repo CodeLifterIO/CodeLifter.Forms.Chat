@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using CommonServiceLocator;
-using Pazz.Mobile.ViewModels;
+using Demo.ViewModels;
 using Xamarin.Forms;
 
-namespace Pazz.Mobile.Views
+namespace Demo.Views
 {
     public partial class InteractionPage : ContentPage
     {

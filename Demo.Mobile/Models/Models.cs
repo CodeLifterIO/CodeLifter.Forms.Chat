@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace Pazz.Mobile.Models
+namespace Demo.Models
 {
     public partial class QueryResponse
     {

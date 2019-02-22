@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CodeLifter.Http;
-using Pazz.Mobile.Models;
+using Demo.Models;
 using RestSharp;
 
-namespace Pazz.Mobile.Services
+namespace Demo.Services
 {
     public class IncomingMessageEventArgs : EventArgs
     {

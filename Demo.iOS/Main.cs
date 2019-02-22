@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace Pazz.Mobile.iOS
+namespace Demo.iOS
 {
     public class Application
     {

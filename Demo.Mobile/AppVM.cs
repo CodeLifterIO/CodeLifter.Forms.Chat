@@ -1,12 +1,12 @@
 ﻿using CodeLifter.Http;
 using CommonServiceLocator;
 using MvvmHelpers;
-using Pazz.Mobile.Services;
-using Pazz.Mobile.ViewModels;
+using Demo.Services;
+using Demo.ViewModels;
 using Unity;
 using Unity.ServiceLocation;
 
-namespace Pazz.Mobile
+namespace Demo
 {
     public class AppVM : BaseViewModel
     {

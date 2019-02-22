@@ -3,12 +3,12 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using CodeLifter.Forms.Chat.Models;
 using MvvmHelpers;
-using Pazz.Mobile.Models;
-using Pazz.Mobile.Services;
+using Demo.Models;
+using Demo.Services;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
-namespace Pazz.Mobile.ViewModels
+namespace Demo.ViewModels
 {
     public class InteractionPageVM : BaseViewModel
     {

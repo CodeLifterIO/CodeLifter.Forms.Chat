@@ -3,10 +3,10 @@ using System.Linq;
 using AVFoundation;
 using CoreGraphics;
 using Foundation;
-using Pazz.Mobile.Views;
+using Demo.Views;
 using UIKit;
 
-namespace Pazz.Mobile.iOS.Views
+namespace Demo.iOS.Views
 {
     public class UICameraPreview : UIView
     {

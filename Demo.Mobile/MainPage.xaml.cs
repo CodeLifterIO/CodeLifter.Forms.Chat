@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Pazz.Mobile
+namespace Demo
 {
     public partial class MainPage : ContentPage
     {

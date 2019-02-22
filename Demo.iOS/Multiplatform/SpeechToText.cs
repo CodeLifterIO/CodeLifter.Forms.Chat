@@ -1,13 +1,13 @@
 ﻿using AVFoundation;
 using Foundation;
-using Pazz.Mobile.iOS.Multiplatform;
-using Pazz.Mobile.Services;
+using Demo.iOS.Multiplatform;
+using Demo.Services;
 using Speech;
 using System;
 using Xamarin.Forms;
 
 [assembly: Xamarin.Forms.Dependency(typeof(SpeechToText))]
-namespace Pazz.Mobile.iOS.Multiplatform
+namespace Demo.iOS.Multiplatform
 {
     public class SpeechToText : ISpeechToText
     {

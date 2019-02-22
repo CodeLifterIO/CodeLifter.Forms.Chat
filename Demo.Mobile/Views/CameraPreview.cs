@@ -2,7 +2,7 @@
 
 using Xamarin.Forms;
 
-namespace Pazz.Mobile.Views
+namespace Demo.Views
 {
     public enum CameraOptions
     {

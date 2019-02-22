@@ -1,10 +1,10 @@
 ﻿using System;
-using Pazz.Mobile.Views;
+using Demo.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
-namespace Pazz.Mobile
+namespace Demo
 {
     public partial class App : Application
     {
