@@ -1,2 +1,2 @@
-# CodeLifter.Forms.Conversational
-A conversational UI for Xamarin Forms
+﻿# CodeLifter.Forms.Chat
+A Chat UI for Xamarin Forms

@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Andrew Palmer</Authors>
+    <PackageLicenseUrl>https://github.com/CodeLifterIO/CodeLifter.Forms.Chat/blob/master/LICENSE</PackageLicenseUrl>
+    <Owners>Andrew Palmer</Owners>
+    <PackageProjectUrl>https://github.com/CodeLifterIO/CodeLifter.Forms.Chat</PackageProjectUrl>
+    <PackageReleaseNotes>First iteration.  Functional, basic, and lacking in docs</PackageReleaseNotes>
+    <Summary>A set of UI, and models for interacting with bots or other simple chat models.</Summary>
+    <Title>CodeLifter.Forms.Chat</Title>
+    <Description>A set of UI, and models for interacting with bots or other simple chat models.</Description>
+    <PackOnBuild>true</PackOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
+    <PackageReference Include="NuGet.Build.Packaging" Version="0.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="Views\Cells\" />
+    <Folder Include="Models\" />
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Views\Cells\IncomingViewCell.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Views\UtteranceEntry.cs" />
+  </ItemGroup>
+</Project>
