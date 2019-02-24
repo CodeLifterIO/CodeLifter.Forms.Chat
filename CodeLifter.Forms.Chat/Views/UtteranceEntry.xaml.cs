@@ -33,7 +33,8 @@ namespace CodeLifter.Forms.Chat.Views
                 return (string)GetValue(TextProperty); 
             }
             set 
-            { 
+            {
+                chatInput.Text = value;
                 SetValue(TextProperty, value); 
             }
         }

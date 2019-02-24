@@ -1,4 +1,6 @@
 ﻿using System;
+using ImageCircle.Forms.Plugin.iOS;
+
 namespace CodeLifter.Forms.Chat.iOS
 {
     public class Plugin
@@ -6,6 +8,7 @@ namespace CodeLifter.Forms.Chat.iOS
         public static void Init() 
         {
             Renderers.UtteranceEntryRenderer.Init();
+            ImageCircleRenderer.Init();
         }
     }
 }

@@ -3,25 +3,18 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using CodeLifter.Forms.Chat.Models;
 using MvvmHelpers;
-using Demo.Models;
-using Demo.Services;
-using Xamarin.Essentials;
 using Xamarin.Forms;
+using CodeLifter.Forms.Chat.Interfaces;
 
 namespace Demo.ViewModels
 {
     public class InteractionPageVM : BaseViewModel
     {
-        public IList<CodeLifter.Forms.Chat.Models.Message> Messages { get; set; } = new ObservableRangeCollection<CodeLifter.Forms.Chat.Models.Message>();
+        public IList<ChatMessage> Messages { get; set; }
 
         public ICommand SendMessageCommand { private set; get; }
-
-        private ISpeechToText SpeechToTextService { get; set; }
-        private IDialogFlowService PazzService { get; set; }
-
+        private IChatService MimicBotService { get; set; }
         private Sender LocalSender { get; set; }
-        private Sender PazzBot { get; set; }
-
         private string CurrentUserVocalization { get; set; }
 
         private string _currentUserUtterance { get; set; }
@@ -41,13 +34,11 @@ namespace Demo.ViewModels
             }
         }
 
-        public InteractionPageVM(IDialogFlowService pazzService, ISpeechToText speechToTextService)
+        public InteractionPageVM(IChatService mimicService)
         {
             Title = "Pazz";
-
-            SpeechToTextService = speechToTextService;
-            //SpeechToTextService.StopSpeechToText();
-            PazzService = pazzService;
+            MimicBotService = mimicService;
+            Messages = MimicBotService.Messages;
 
             LocalSender = new Sender()
             {
@@ -57,78 +48,42 @@ namespace Demo.ViewModels
                 Color = Color.LightGreen,
             };
 
-            PazzBot = new Sender()
-            {
-                Username = "Pazz",
-                Avatar = "https://m.media-amazon.com/images/M/MV5BMzg5NjQ0MGYtZDg2Yy00NWFjLWE2MmQtMWY5OTc2ZDgzNTk3XkEyXkFqcGdeQXVyNTI5NjIyMw@@._V1_UY317_CR129,0,214,317_AL_.jpg",
-            };
-
-            MessagingCenter.Subscribe<ISpeechToText, string>(this, "STT", (sender, args) => {
-                CurrentUserVocalization = args;
-            });
-
-            MessagingCenter.Subscribe<ISpeechToText>(this, "Final", async (sender) => {
-                await SubmitUserMessage(CurrentUserVocalization);
-            });
-
             SendMessageCommand = new Command(
                 execute: async () =>
                 {
-                    string message = CurrentUserUtterance;
-                    CurrentUserUtterance = string.Empty;
-                    await SubmitUserMessage(message);
+                    await SubmitUserMessage();
                 },
                 canExecute: () =>
                 {
                     return true;
                 });
 
-            PazzService.ReceivedAgentUtterance += PazzService_ReceivedAgentUtterance;
+            MimicBotService.ReceivedAgentUtterance += PazzService_ReceivedAgentUtterance;
 
-            PazzService.StartConversation();
+            MimicBotService.StartConversation();
         }
 
-        public async Task SubmitUserMessage(string message)
+        public async Task SubmitUserMessage()
         {
-            if (string.IsNullOrWhiteSpace(message))
+            if (string.IsNullOrWhiteSpace(CurrentUserUtterance))
             {
                 return;
             }
 
-            SpeechToTextService.StopSpeechToText();
-
-            Messages.Add(new CodeLifter.Forms.Chat.Models.Message()
+            ChatMessage chatMessage = new CodeLifter.Forms.Chat.Models.ChatMessage()
             {
                 Sender = LocalSender,
-                Text = message,
-            });
+                Text = CurrentUserUtterance,
+            };
 
-            await PazzService.SubmitUserTurn(message);
+            CurrentUserUtterance = string.Empty;
+
+            await MimicBotService.SubmitUserTurn(chatMessage);
         }
 
         void PazzService_ReceivedAgentUtterance(object sender, System.EventArgs e)
         {
-            string message = (e as IncomingMessageEventArgs).MessageText;
-            Messages.Add(new CodeLifter.Forms.Chat.Models.Message()
-            {
-                Sender = PazzBot,
-                Text = message,
-            });
-            SpeakNow(message);
-        }
-
-        public async void SpeakNow(string text)
-        {
-            var settings = new SpeechOptions()
-            {
-                Volume = .75f,
-                Pitch = 1.0f
-            };
-
-            await TextToSpeech.SpeakAsync(text).ContinueWith((t) =>
-            {
-                SpeechToTextService.StartSpeechToText();
-            }, TaskScheduler.FromCurrentSynchronizationContext());
+            // read out loud
         }
     }
 }

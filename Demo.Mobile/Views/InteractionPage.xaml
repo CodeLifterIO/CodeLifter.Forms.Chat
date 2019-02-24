@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:vm="clr-namespace:Demo.ViewModels;assembly=Demo"
@@ -8,29 +8,16 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Image Grid.Row="0" Grid.Column="0" Source="{Binding CurrentAvatar}" Margin="25" />
-        <views:CameraPreview x:Name="camera" Camera="Front" 
-                             HorizontalOptions="Center" VerticalOptions="Center"
-                             HeightRequest="200" WidthRequest="200"
-                             Grid.Column="0" Grid.Row="1"/>
-        <Label Grid.Row="2" Grid.Column="0" Text="{Binding ConversationDetailsText}" />
         <Chat:DialogView x:Name="chat" 
                                 MessagesSource="{Binding Messages}"
-                                Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="3" />
+                                Grid.Row="0" Grid.Column="0" />
         <Chat:UtteranceEntry x:Name="entry" Text="{Binding CurrentUserUtterance}"
                            HeightRequest="50" SubmitCommand="{Binding SendMessageCommand}"
-                            Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" />
+                            Grid.Row="1" Grid.Column="0" />
     </Grid>
-        
-    
-
 </ContentPage>

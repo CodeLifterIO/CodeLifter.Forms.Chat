@@ -11,13 +11,13 @@ namespace CodeLifter.Forms.Chat.Views
     { 
         public static readonly BindableProperty MessagesSourceProperty = BindableProperty.Create(
           "MessagesSource", 
-          typeof(IList<Message>),
+          typeof(IList<ChatMessage>),
           typeof(DialogView), 
-          new ObservableCollection<Message>()); 
+          new ObservableCollection<ChatMessage>()); 
 
-        public IList<Message> MessagesSource
+        public IList<ChatMessage> MessagesSource
         {
-            get { return (IList<Message>)GetValue(MessagesSourceProperty); }
+            get { return (IList<ChatMessage>)GetValue(MessagesSourceProperty); }
             set { SetValue(MessagesSourceProperty, value); }
         }
 

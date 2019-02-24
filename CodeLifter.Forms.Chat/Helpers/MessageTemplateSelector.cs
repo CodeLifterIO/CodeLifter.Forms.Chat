@@ -18,7 +18,7 @@ namespace CodeLifter.Forms.Chat.Helpers
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {
-            var messageVm = item as Message;
+            var messageVm = item as ChatMessage;
             if (messageVm == null)
                 return null;
 

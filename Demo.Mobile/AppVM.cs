@@ -5,13 +5,13 @@ using Demo.Services;
 using Demo.ViewModels;
 using Unity;
 using Unity.ServiceLocation;
+using CodeLifter.Forms.Chat.Interfaces;
 
 namespace Demo
 {
     public class AppVM : BaseViewModel
     {
         public static IUnityContainer IOCContainer { get; private set; }
-        private ISpeechToText SpeechToTextService { get; set; }
         private static IRestApiClient RestAPIClient = new RestApiClient("https://api.dialogflow.com/v1/");
 
         public AppVM()
@@ -31,15 +31,13 @@ namespace Demo
             ServiceLocator.SetLocatorProvider(() => unityServiceLocator);
 
             IOCContainer.RegisterInstance(this);
-            IOCContainer.RegisterInstance(SpeechToTextService);
             IOCContainer.RegisterInstance(RestAPIClient);
-            IOCContainer.RegisterType<IDialogFlowService, PazzService>();
+            IOCContainer.RegisterType<IChatService, MimicBotService>();
             IOCContainer.RegisterType<InteractionPageVM>();
         }
 
         public void InitializeDependencies()
         {
-            SpeechToTextService = Xamarin.Forms.DependencyService.Get<ISpeechToText>();
         }
     }
 }
