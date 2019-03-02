@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeLifter.Forms.Chat", "CodeLifter.Forms.Chat\CodeLifter.Forms.Chat.csproj", "{73A9C600-A6C3-42F0-A6B9-48399BD55B97}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73A9C600-A6C3-42F0-A6B9-48399BD55B97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73A9C600-A6C3-42F0-A6B9-48399BD55B97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73A9C600-A6C3-42F0-A6B9-48399BD55B97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73A9C600-A6C3-42F0-A6B9-48399BD55B97}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

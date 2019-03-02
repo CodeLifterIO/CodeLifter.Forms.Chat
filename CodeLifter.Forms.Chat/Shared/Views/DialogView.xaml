@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="CodeLifter.Forms.Chat.Views.DialogView" 
+             xmlns:helpers="clr-namespace:CodeLifter.Forms.Chat.Views.Helpers" 
+             xmlns:views="clr-namespace:CodeLifter.Forms.Chat.Views">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <helpers:MessageTemplateSelector x:Key="MessageTemplateSelector"/>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ListView
+         ItemTemplate="{StaticResource MessageTemplateSelector}" 
+         ItemsSource="{Binding Messages}" 
+         Margin="0" 
+         HasUnevenRows="True" 
+         VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+         SeparatorColor="Transparent" >
+    </ListView>
+</ContentView>

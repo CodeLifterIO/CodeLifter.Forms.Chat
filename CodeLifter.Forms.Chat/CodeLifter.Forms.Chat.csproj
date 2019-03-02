@@ -1,34 +1,105 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Authors>Andrew Palmer</Authors>
-    <PackageLicenseUrl>https://github.com/CodeLifterIO/CodeLifter.Forms.Chat/blob/master/LICENSE</PackageLicenseUrl>
-    <Owners>Andrew Palmer</Owners>
-    <PackageProjectUrl>https://github.com/CodeLifterIO/CodeLifter.Forms.Chat</PackageProjectUrl>
-    <PackageReleaseNotes>First iteration.  Functional, basic, and lacking in docs</PackageReleaseNotes>
-    <Summary>A set of UI, and models for interacting with bots or other simple chat models.</Summary>
-    <Title>CodeLifter.Forms.Chat</Title>
-    <Description>A set of UI, and models for interacting with bots or other simple chat models.</Description>
+    <!--Update with your target such as: Xamarin.iOS10 or MonoAndroid80 or Xamarin.Mac20,  ;Xamarin.Mac20;uap10.0;netstandard2.0;netstandard1.5-->
+    <TargetFrameworks>netstandard2.0;Xamarin.iOS10;MonoAndroid90</TargetFrameworks>
+    
+    <!--Assembly and Namespace info -->
+    <AssemblyName>CodeLifter.Forms.Chat</AssemblyName>
+    <RootNamespace>CodeLifter.Forms.Chat</RootNamespace>
+    
+    <Product>$(AssemblyName) ($(TargetFramework))</Product>
+    <AssemblyVersion>0.3.0</AssemblyVersion>
+    <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
+    <Version>0.3.0</Version>
+    <NeutralLanguage>en</NeutralLanguage>
+ 
+   
+    <!--Don't auto add files for me, I will tell you -->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+    
+    <!-- Helper to add defines-->
+    <DefineConstants>$(DefineConstants);</DefineConstants>    
+    
+    <!--Assembly and Namespace info -->
+    
+    <!--Version of C# to use -->
+    <LangVersion>default</LangVersion>
+    
     <PackOnBuild>true</PackOnBuild>
+    <PackageVersion>0.3.0</PackageVersion>
+    <Authors>Andrew Palmer, CodeLifterIO</Authors>
+    <Owners>Andrew Palmer, CodeLifterIO</Owners>
+    <PackageProjectUrl>https://github.com/CodeLifterIO/CodeLifter.Forms.Chat</PackageProjectUrl>
+    <PackageReleaseNotes>VERY EARLY RELEASE!</PackageReleaseNotes>
+    <Summary>An early release.  Functional mostly but lacking docs</Summary>
+    <Title>CodeLifter.Forms.Chat</Title>
+    <Description>An early release.  Functional mostly but lacking docs</Description>
+    <PackageId>CodeLifter.Forms.Chat</PackageId>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+  
+  <!-- Define what happens on build and release -->
+   <PropertyGroup Condition=" '$(Configuration)'=='Debug' ">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition=" '$(Configuration)'=='Release' ">
+    <DebugType>pdbonly</DebugType>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
-    <PackageReference Include="NuGet.Build.Packaging" Version="0.2.0" />
+    <!-- We will compile anything in the Shared folder but exclude binaries and stuff --> 
+    <Compile Include="Shared\**\*" Exclude="obj\**\*.*;bin\**\*.*;bin;obj" /> 
+    
+    <!--NuGet that bring in good stuff -->
+    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.4.0" PrivateAssets="All" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
+    <PackageReference Include="Xamarin.Forms" Version="3.5.0.169047" />
+<!--    <PackageReference Include="NuGet.Build.Packaging" Version="0.2.0" />-->
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.3.0" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
-    <Folder Include="Views\Cells\" />
-    <Folder Include="Models\" />
-    <Folder Include="Helpers\" />
-    <Folder Include="Interfaces\" />
+  
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
+    <Compile Include="Android\**\*" />
+    <!-- if you have resources add this
+    <AndroidResource Include="Resources\**\*.axml" />
+    <AndroidResource Include="Resources\**\*.xml" />
+    <AndroidResource Include="Resources\**\*.png" />
+    -->
   </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="Views\Cells\IncomingViewCell.xaml.cs" />
+
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
+    <Compile Include="iOS\**\*" />
   </ItemGroup>
-  <ItemGroup>
-    <None Remove="Views\UtteranceEntry.cs" />
+    
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.Mac')) ">
+    <Compile Include="Mac\**\*" />
   </ItemGroup>
+    
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.UWP')) ">
+    <Compile Include="UWP\**\*" />
+  </ItemGroup>
+  
+<!--  <ItemGroup>
+    <None Update="Shared\Views\DialogView.xaml.cs">
+      <DependentUpon>DialogView.xaml</DependentUpon>
+    </None>
+    <None Update="Shared\Views\Cells\IncomingMessageViewCell.xaml.cs">
+      <DependentUpon>IncomingMessageViewCell.xaml</DependentUpon>
+    </None>
+    <None Update="Shared\Views\Cells\OutgoingMessageViewCell.xaml.cs">
+      <DependentUpon>OutgoingMessageViewCell.xaml</DependentUpon>
+    </None>
+    <None Update="Shared\Views\UtteranceEntry.xaml.cs">
+      <DependentUpon>UtteranceEntry.xaml</DependentUpon>
+    </None>
+  </ItemGroup>-->
+    
+  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 </Project>
