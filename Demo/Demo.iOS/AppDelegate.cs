@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AppCenter;
-using Microsoft.AppCenter.Analytics;
-using Microsoft.AppCenter.Crashes;
 
 using Foundation;
 using UIKit;
@@ -25,12 +22,9 @@ namespace Demo.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            Xamarin.Calabash.Start();
             global::Xamarin.Forms.Forms.Init();
             CodeLifter.Forms.Chat.iOS.Plugin.Init();
             LoadApplication(new App());
-
-            AppCenter.Start("7a7a251b-695c-4055-910d-1e7fbdea23fa", typeof(Analytics), typeof(Crashes));
 
             return base.FinishedLaunching(app, options);
         }

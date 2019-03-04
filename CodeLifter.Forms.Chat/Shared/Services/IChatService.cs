@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CodeLifter.Forms.Chat.Models;
-using CodeLifter.Forms.Chat.Interfaces;
 
 namespace CodeLifter.Forms.Chat.Services
 {

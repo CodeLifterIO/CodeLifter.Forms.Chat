@@ -1,4 +1,4 @@
-﻿using ImageCircle.Forms.Plugin.UWP;
+//using ImageCircle.Forms.Plugin.UWP;
 
 namespace CodeLifter.Forms.Chat.UWP
 {
@@ -6,7 +6,7 @@ namespace CodeLifter.Forms.Chat.UWP
     {
         public static void Init()
         {
-            ImageCircleRenderer.Init();
+            //ImageCircleRenderer.Init();
         }
     }
 }

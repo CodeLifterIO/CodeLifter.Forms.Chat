@@ -7,7 +7,7 @@ namespace CodeLifter.Forms.Chat.Models
     public interface IChatMessage
     {
         string Text { get; set; }
-        Sender Sender { get; set; }
+        ISender Sender { get; set; }
         object Data { get; set; }
     }
 }

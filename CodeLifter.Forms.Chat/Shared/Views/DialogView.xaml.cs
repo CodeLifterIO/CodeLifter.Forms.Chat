@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using CodeLifter.Forms.Chat.Models;
 using Xamarin.Forms;
 
-[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
+[assembly: Xamarin.Forms.Xaml.XamlCompilation(Xamarin.Forms.Xaml.XamlCompilationOptions.Compile)]
 namespace CodeLifter.Forms.Chat.Views
 {
     /// <summary>

@@ -1,11 +1,11 @@
-﻿using CodeLifter.Http;
+using CodeLifter.Http;
 using CommonServiceLocator;
 using MvvmHelpers;
-using Demo.Services;
 using Demo.ViewModels;
 using Unity;
 using Unity.ServiceLocation;
-using CodeLifter.Forms.Chat.Interfaces;
+using CodeLifter.Forms.Chat.Services;
+using CodeLifter.Forms.Chat.Shared.Services;
 
 namespace Demo
 {

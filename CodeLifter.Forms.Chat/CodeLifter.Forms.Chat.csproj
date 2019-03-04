@@ -85,21 +85,16 @@
   <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.UWP')) ">
     <Compile Include="UWP\**\*" />
   </ItemGroup>
-  
-<!--  <ItemGroup>
-    <None Update="Shared\Views\DialogView.xaml.cs">
-      <DependentUpon>DialogView.xaml</DependentUpon>
-    </None>
-    <None Update="Shared\Views\Cells\IncomingMessageViewCell.xaml.cs">
-      <DependentUpon>IncomingMessageViewCell.xaml</DependentUpon>
-    </None>
-    <None Update="Shared\Views\Cells\OutgoingMessageViewCell.xaml.cs">
-      <DependentUpon>OutgoingMessageViewCell.xaml</DependentUpon>
-    </None>
-    <None Update="Shared\Views\UtteranceEntry.xaml.cs">
-      <DependentUpon>UtteranceEntry.xaml</DependentUpon>
-    </None>
-  </ItemGroup>-->
+    
+  <ItemGroup>
+    <Compile Remove="**\*.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="**\*.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
     
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 </Project>

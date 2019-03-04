@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using Xamarin.Forms;
 
 namespace CodeLifter.Forms.Chat.Models
 {
-    interface ISender
+    public interface ISender
     {
         string Username { get; set; }
         string Avatar { get; set; }
