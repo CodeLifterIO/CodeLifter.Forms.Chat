@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            xmlns:circle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              x:Class="CodeLifter.Forms.Chat.Views.Cells.OutgoingMessageViewCell">
-     <Frame BackgroundColor="{Binding Sender.Color}"
+    <Grid RowSpacing="0" ColumnSpacing="0" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="35*" />
+            <ColumnDefinition Width="65*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <ContentView Grid.Column="2" Grid.Row="0">
+            <circle:CircleImage VerticalOptions="End" HorizontalOptions="End"
+            Source="{Binding Sender.Avatar}"
+            HeightRequest="35" WidthRequest="35" Margin="5,10,10,10"
+            Aspect="AspectFill" />
+        </ContentView>
+        <Frame BackgroundColor="{Binding Sender.Color}"
+            Grid.Row="0" Grid.Column="1"
             Padding="10"
             HasShadow="false"
-            Margin="80,10,10,10">
-           <Label Text="{Binding Text}"
-                  TextColor="{Binding Sender.TextColor}"
+            Margin="10,10,10,10">
+           <Label Text="{Binding Text}" 
+                  TextColor="{Binding Sender.TextColor}" 
                   FontSize="28" />
-      </Frame>
+        </Frame>
+    </Grid>
 </ViewCell>
