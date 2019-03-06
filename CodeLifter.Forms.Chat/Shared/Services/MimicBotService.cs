@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using CodeLifter.Forms.Chat.Models;
 using CodeLifter.Forms.Chat.Services;
@@ -9,7 +10,7 @@ namespace CodeLifter.Forms.Chat.Shared.Services
 {
     public class MimicBotService : IChatService
     {
-        public IList<IChatMessage> Messages { get; set; } = (System.Collections.Generic.IList<IChatMessage>)new List<ChatMessage>();
+        public IList<IChatMessage> Messages { get; set; } = (System.Collections.Generic.IList<IChatMessage>)new ObservableCollection<ChatMessage>();
 
         private List<Sender> Mimics { get; set; } = new List<Sender>();
 

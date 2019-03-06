@@ -1,4 +1,3 @@
-using CodeLifter.Http;
 using CommonServiceLocator;
 using MvvmHelpers;
 using Demo.ViewModels;
@@ -12,7 +11,6 @@ namespace Demo
     public class AppVM : BaseViewModel
     {
         public static IUnityContainer IOCContainer { get; private set; }
-        private static IRestApiClient RestAPIClient = new RestApiClient("https://api.dialogflow.com/v1/");
 
         public AppVM()
         {
@@ -31,7 +29,6 @@ namespace Demo
             ServiceLocator.SetLocatorProvider(() => unityServiceLocator);
 
             IOCContainer.RegisterInstance(this);
-            IOCContainer.RegisterInstance(RestAPIClient);
             IOCContainer.RegisterType<IChatService, MimicBotService>();
             IOCContainer.RegisterType<InteractionPageVM>();
         }
