@@ -9,9 +9,9 @@
     <RootNamespace>CodeLifter.Forms.Chat</RootNamespace>
     
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
-    <AssemblyVersion>0.3.0</AssemblyVersion>
+    <AssemblyVersion>0.4.0</AssemblyVersion>
     <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
-    <Version>0.3.0</Version>
+    <Version>0.4.0</Version>
     <NeutralLanguage>en</NeutralLanguage>
  
    
