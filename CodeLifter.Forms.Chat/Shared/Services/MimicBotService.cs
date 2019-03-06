@@ -10,7 +10,7 @@ namespace CodeLifter.Forms.Chat.Shared.Services
 {
     public class MimicBotService : IChatService
     {
-        public IList<IChatMessage> Messages { get; set; } = (System.Collections.Generic.IList<IChatMessage>)new ObservableCollection<ChatMessage>();
+        public ObservableCollection<IChatMessage> Messages { get; set; } = new ObservableCollection<IChatMessage>();
 
         private List<Sender> Mimics { get; set; } = new List<Sender>();
 

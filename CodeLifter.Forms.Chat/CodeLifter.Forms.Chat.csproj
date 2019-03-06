@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <!--Update with your target such as: Xamarin.iOS10 or MonoAndroid80 or Xamarin.Mac20,  ;Xamarin.Mac20;uap10.0;netstandard2.0;netstandard1.5-->
@@ -60,7 +60,7 @@
     <!--NuGet that bring in good stuff -->
     <PackageReference Include="MSBuild.Sdk.Extras" Version="1.4.0" PrivateAssets="All" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
-    <PackageReference Include="Xamarin.Forms" Version="3.5.0.169047" />
+    <PackageReference Include="Xamarin.Forms" Version="3.6.0.220655" />
 <!--    <PackageReference Include="NuGet.Build.Packaging" Version="0.2.0" />-->
     <PackageReference Include="Refractored.MvvmHelpers" Version="1.3.0" />
   </ItemGroup>

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using CodeLifter.Forms.Chat.Models;
 
@@ -26,7 +27,7 @@ namespace CodeLifter.Forms.Chat.Services
 
     public interface IChatService
     {
-        IList<IChatMessage> Messages { get; set; }
+        ObservableCollection<IChatMessage> Messages { get; set; }
         event EventHandler ReceivedAgentUtterance;
         Task SubmitUserTurn(IChatMessage userUtterance);
         void OnReceivedAgentUtterance(IncomingMessageEventArgs e);

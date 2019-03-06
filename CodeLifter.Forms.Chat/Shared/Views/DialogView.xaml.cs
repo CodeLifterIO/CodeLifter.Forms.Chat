@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Windows.Input;
 using CodeLifter.Forms.Chat.Models;
 using Xamarin.Forms;
@@ -15,19 +16,28 @@ namespace CodeLifter.Forms.Chat.Views
     { 
         public static readonly BindableProperty MessagesSourceProperty = BindableProperty.Create(
           "MessagesSource", 
-          typeof(IList<ChatMessage>),
+          typeof(ObservableCollection<IChatMessage>),
           typeof(DialogView), 
-          new ObservableCollection<ChatMessage>()); 
+          new ObservableCollection<IChatMessage>()); 
 
-        public IList<ChatMessage> MessagesSource
+        public ObservableCollection<IChatMessage> MessagesSource
         {
-            get { return (IList<ChatMessage>)GetValue(MessagesSourceProperty); }
-            set { SetValue(MessagesSourceProperty, value); }
+            get { return (ObservableCollection<IChatMessage>)GetValue(MessagesSourceProperty); }
+            set
+            {
+                SetValue(MessagesSourceProperty, value);
+                value.CollectionChanged += MessagesSource_CollectionChanged;
+            }
         }
 
         public DialogView()
         {
             InitializeComponent();
+        }
+
+        private void MessagesSource_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            chatListView.ScrollTo(e.NewItems[0], ScrollToPosition.End , true);
         }
     }
 }

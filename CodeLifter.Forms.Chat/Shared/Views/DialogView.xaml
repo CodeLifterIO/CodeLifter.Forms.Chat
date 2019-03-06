@@ -9,7 +9,7 @@
             <helpers:MessageTemplateSelector x:Key="MessageTemplateSelector"/>
         </ResourceDictionary>
     </ContentView.Resources>
-    <ListView
+    <ListView x:Name="chatListView"
          ItemTemplate="{StaticResource MessageTemplateSelector}" 
          ItemsSource="{Binding Messages}" 
          Margin="0" 
