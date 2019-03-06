@@ -18,14 +18,14 @@ namespace CodeLifter.Forms.Chat.Shared.Services
         {
             Mimics.Add(new Sender()
             {
-                Username = "Mimic",
+                Username = "A. Mimic",
                 Avatar = "https://cdnb.artstation.com/p/assets/images/images/010/158/137/large/luis-miguel-jocson-mimic-final.jpg?1523357844",
                 Color = Color.Green
             });
 
             Mimics.Add(new Sender()
             {
-                Username = "Mimicker",
+                Username = "A. CopyCat",
                 Avatar = "https://cdnb.artstation.com/p/assets/images/images/011/485/349/large/lukas-stoddard-mimic-chest.jpg?1529842500",
                 Color = Color.AliceBlue,
                 TextColor = Color.DarkGray
@@ -53,7 +53,7 @@ namespace CodeLifter.Forms.Chat.Shared.Services
 
             foreach (Sender s in Mimics)
             {
-                OnReceivedAgentUtterance(new IncomingMessageEventArgs($"{firstMessage} My name is {s.Username}", s));
+                OnReceivedAgentUtterance(new IncomingMessageEventArgs($"{firstMessage} My name is '{s.Username}'", s));
             }
         }
 
